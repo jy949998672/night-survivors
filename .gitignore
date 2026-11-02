@@ -1,0 +1,6 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# pygbag working directory (the committed web build lives in docs/)
+build/

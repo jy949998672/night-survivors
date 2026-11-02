@@ -1,0 +1,135 @@
+{
+  "window": {"width": 390, "height": 700, "title": "Night Survivors"},
+  "dt": 0.016666666666666666,
+  "win_time": 120.0,
+  "sounds": {
+    "hit": "hit.wav",
+    "gem": "gem.wav",
+    "levelup": "levelup.wav",
+    "hurt": "hurt.wav",
+    "end": "end.wav"
+  },
+  "feel": {
+    "shake_s": 0.15,
+    "shake_amplitude": 5,
+    "floater_life_s": 0.7,
+    "floater_rise": 45,
+    "flash_s": 0.18,
+    "flash_expand": 90,
+    "max_floaters": 80
+  },
+  "assets": {
+    "scale": 3,
+    "sprite": {
+      "hero": "hero.png",
+      "bat": "bat.png",
+      "slime": "slime.png",
+      "ghost": "ghost.png",
+      "demon": "demon.png",
+      "spark": "sword.png"
+    },
+    "gems": {"1": "gem_blue.png", "2": "gem_pink.png"},
+    "floor_tile": "floor.png"
+  },
+  "floor": {"tile": 16},
+  "hero": {
+    "speed": 120,
+    "hp": 100,
+    "radius": 12,
+    "magnet_radius": 60,
+    "move_deadzone": 12
+  },
+  "xp": {"first_level": 5, "per_level": 3},
+  "gems": {"speed": 300},
+  "weapons_max": 3,
+  "level_up": {"cards": 3, "heal_amount": 30},
+  "weapons": {
+    "spark_wand": {
+      "name": "Spark Wand",
+      "short": "Spark",
+      "desc": "Shoots the nearest enemy",
+      "max_level": 5,
+      "damage": 10,
+      "damage_per_level": 3,
+      "interval": 0.8,
+      "interval_per_level": -0.08,
+      "spark_speed": 400,
+      "sparks": 1,
+      "sparks_bonus_levels": [3, 5]
+    },
+    "spin_blades": {
+      "name": "Spin Blades",
+      "short": "Blades",
+      "desc": "Blades circle around you",
+      "max_level": 5,
+      "damage": 8,
+      "damage_per_level": 3,
+      "radius": 60,
+      "turn_period": 1.5,
+      "hit_cooldown": 0.5,
+      "blade_radius": 10,
+      "blades": 2,
+      "blades_bonus_levels": [2, 4]
+    },
+    "holy_ring": {
+      "name": "Holy Ring",
+      "short": "Ring",
+      "desc": "Hurts everything nearby",
+      "max_level": 5,
+      "damage": 5,
+      "damage_per_level": 2,
+      "radius": 50,
+      "radius_per_level": 10,
+      "interval": 0.5
+    }
+  },
+  "passives": {
+    "swift_boots": {
+      "name": "Swift Boots",
+      "short": "Boots",
+      "desc": "+10% walking speed",
+      "max_level": 5,
+      "speed_bonus_per_level": 0.10
+    },
+    "big_heart": {
+      "name": "Big Heart",
+      "short": "Heart",
+      "desc": "+20 max HP and heal 20",
+      "max_level": 5,
+      "max_hp_per_level": 20,
+      "heal_per_level": 20
+    },
+    "magnet": {
+      "name": "Magnet",
+      "short": "Magnet",
+      "desc": "+30 gem pickup range",
+      "max_level": 5,
+      "magnet_per_level": 30
+    }
+  },
+  "enemies": {
+    "bat": {"name": "Bat", "hp": 8, "speed": 100, "damage": 5, "xp": 1, "radius": 10, "draw_scale": 1},
+    "slime": {"name": "Slime", "hp": 30, "speed": 55, "damage": 8, "xp": 2, "radius": 12, "draw_scale": 1},
+    "ghost": {"name": "Ghost", "hp": 15, "speed": 135, "damage": 6, "xp": 2, "radius": 10, "draw_scale": 1},
+    "demon": {"name": "Demon", "hp": 800, "speed": 85, "damage": 20, "xp": 0, "radius": 24, "draw_scale": 2, "boss": true}
+  },
+  "boss": {"type": "demon", "from_s": 90.0, "recall_radius": 600},
+  "contact": {"interval": 0.5},
+  "spawning": {
+    "interval": 1.0,
+    "max_per_tick": 8,
+    "spawn_radius": 380,
+    "despawn_radius": 700,
+    "max_alive": 120,
+    "segments": [
+      {"from_s": 0.0, "types": ["bat"], "min_alive": 12},
+      {"from_s": 15.0, "types": ["bat"], "min_alive": 20},
+      {"from_s": 30.0, "types": ["bat", "slime"], "min_alive": 28},
+      {"from_s": 45.0, "types": ["slime", "ghost"], "min_alive": 36},
+      {"from_s": 60.0, "types": ["bat", "ghost"], "min_alive": 45},
+      {"from_s": 75.0, "types": ["bat", "slime", "ghost"], "min_alive": 55},
+      {"from_s": 90.0, "types": ["bat", "slime"], "min_alive": 55},
+      {"from_s": 105.0, "types": ["bat"], "min_alive": 75}
+    ]
+  }
+}
